@@ -8,11 +8,11 @@
     },
     "poc-application-b": {
       "repository": "593793041011.dkr.ecr.us-west-2.amazonaws.com/infra/poc-application-b",
-      "sha": "d87c10e9f2398e79511305a0933bca677ac89411",
-      "source_actor": "choovick",
+      "sha": "00cd9bc5778d0a977aeb8880fbfc02e2462bf4cc",
       "source_commit_author": "choovick",
-      "tag": "v0.1.6-story-ci-retrigger-2026-03-10-d87c10e",
-      "updated_at": "2026-03-10T15:32:13Z"
+      "source_trigger_actor": "choovick",
+      "tag": "v0.1.6-story-ci-retrigger-2026-03-10-00cd9bc",
+      "updated_at": "2026-03-10T16:51:13Z"
     }
   },
   "schema_version": 1
