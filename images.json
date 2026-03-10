@@ -8,9 +8,9 @@
     },
     "poc-application-b": {
       "repository": "593793041011.dkr.ecr.us-west-2.amazonaws.com/infra/poc-application-b",
-      "sha": "0f07ab52c9547e87f00c3a59408d606ef846fdbd",
-      "tag": "v0.1.4-alpha-0f07ab5",
-      "updated_at": "2026-03-10T13:44:29Z"
+      "sha": "2f0bf6e133c0d8173a5e6bdaab94ca8d5b81763d",
+      "tag": "v0.1.5-story-ci-retrigger-2026-03-10-2f0bf6e",
+      "updated_at": "2026-03-10T14:25:30Z"
     }
   },
   "schema_version": 1
