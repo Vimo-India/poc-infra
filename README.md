@@ -13,6 +13,8 @@ Infrastructure metadata repository for cross-repository image promotion signals.
   - `repository`
   - `tag`
   - `sha`
+  - `source_actor`
+  - `source_commit_author`
   - `updated_at`
 
 ## Branch strategy
