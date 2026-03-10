@@ -10,6 +10,7 @@ Infrastructure metadata repository for cross-repository image promotion signals.
   - `applications`
 - Each app entry is created automatically by CI when first seen.
 - Each app entry contains:
+  - `repository`
   - `tag`
   - `sha`
   - `updated_at`
