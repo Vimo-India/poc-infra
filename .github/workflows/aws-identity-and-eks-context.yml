@@ -1,0 +1,73 @@
+name: AWS Identity And EKS Context
+
+on:
+  workflow_dispatch:
+    inputs:
+      aws_region:
+        description: AWS region for EKS commands
+        required: false
+        default: us-west-2
+        type: string
+      cluster_name:
+        description: Optional EKS cluster name (leave empty to use first cluster in region)
+        required: false
+        default: ''
+        type: string
+
+jobs:
+  aws-and-eks-check:
+    runs-on: generic
+
+    steps:
+      - name: Ensure AWS CLI
+        uses: Vimo-India/shared-workflows/.github/actions/aws-cli-setup@main
+
+      - name: Show AWS identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          aws sts get-caller-identity
+
+      - name: List EKS clusters and resolve target
+        id: resolve
+        shell: bash
+        env:
+          AWS_REGION: ${{ inputs.aws_region }}
+          INPUT_CLUSTER_NAME: ${{ inputs.cluster_name }}
+        run: |
+          set -euo pipefail
+
+          echo "[info] region=${AWS_REGION}"
+          aws eks list-clusters --region "${AWS_REGION}" --output table
+
+          cluster_name="${INPUT_CLUSTER_NAME}"
+          if [ -z "${cluster_name}" ]; then
+            cluster_name="$(aws eks list-clusters --region "${AWS_REGION}" --query 'clusters[0]' --output text)"
+          fi
+
+          if [ -z "${cluster_name}" ] || [ "${cluster_name}" = "None" ]; then
+            echo "[error] no clusters found in region ${AWS_REGION}"
+            exit 1
+          fi
+
+          echo "[info] target_cluster=${cluster_name}"
+          echo "cluster_name=${cluster_name}" >> "${GITHUB_OUTPUT}"
+
+      - name: Get kube context for target cluster
+        shell: bash
+        env:
+          AWS_REGION: ${{ inputs.aws_region }}
+          CLUSTER_NAME: ${{ steps.resolve.outputs.cluster_name }}
+        run: |
+          set -euo pipefail
+          aws eks update-kubeconfig --region "${AWS_REGION}" --name "${CLUSTER_NAME}"
+
+      - name: Show current context (if kubectl exists)
+        shell: bash
+        run: |
+          set -euo pipefail
+          if command -v kubectl >/dev/null 2>&1; then
+            kubectl config current-context
+          else
+            echo "[info] kubectl not installed on runner; kubeconfig was updated successfully."
+          fi
