@@ -5,8 +5,8 @@
       "sha": "d7324f42009594e71df6f0a14341b85d55f007e8",
       "source_commit_author": "choovick",
       "source_trigger_actor": "choovick",
-      "tag": "v0.2.16-alpha-d7324f4",
-      "updated_at": "2026-03-13T14:12:19Z"
+      "tag": "v0.3.0-alpha-d7324f4",
+      "updated_at": "2026-03-13T14:32:24Z"
     },
     "poc-application-b": {
       "repository": "593793041011.dkr.ecr.us-west-2.amazonaws.com/infra/poc-application-b",
