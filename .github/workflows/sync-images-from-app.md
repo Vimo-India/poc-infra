@@ -31,13 +31,14 @@ Configure required reviewers in:
 
 ## Implementation
 
-The workflow reuses the shared composite action:
+The workflow uses local scripts in this repository:
 
-- `Vimo-India/shared-workflows/.github/actions/sync-infra-images@main`
+- `.github/scripts/sync_images.sh`
+- `.github/scripts/update_images_json.py`
 
-That action handles:
+These scripts handle:
 
 - missing branch creation
-- branch seeding rules
+- release-branch seeding rules
 - `images.json` update logic
 - commit/push with retry
