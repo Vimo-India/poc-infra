@@ -29,6 +29,11 @@ Configure required reviewers in:
 
 - `poc-infra` -> Settings -> Environments -> `release-images-sync`
 
+Recommended protection setup:
+
+- Enable `Required reviewers`
+- Disable `Wait timer` (set to 0 / unchecked)
+
 ## Implementation
 
 The workflow uses local scripts in this repository:
