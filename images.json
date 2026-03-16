@@ -2,11 +2,11 @@
   "applications": {
     "poc-application-a": {
       "repository": "593793041011.dkr.ecr.us-west-2.amazonaws.com/infra/poc-application-a",
-      "sha": "2c2187c9c394413721f50b138c84f6c2d7f7cbf1",
+      "sha": "a3cc4e6dcae7487463fb039d0a2106dc98ded5a6",
       "source_commit_author": "choovick",
       "source_trigger_actor": "choovick",
-      "tag": "v0.2.14-26-03-rc1-2c2187c",
-      "updated_at": "2026-03-10T18:00:01Z"
+      "tag": "v0.3.0-26-03-rc4-a3cc4e6",
+      "updated_at": "2026-03-16T13:17:03Z"
     },
     "poc-application-b": {
       "repository": "593793041011.dkr.ecr.us-west-2.amazonaws.com/infra/poc-application-b",
